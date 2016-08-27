@@ -1,0 +1,136 @@
+<theme title="1ph0n3" copyright="@wassan128" author="wassan128" scriptfile="main.js">
+	<view backgroundimage="bg.png" clippingColor="#FFFF00" titlebar="false" resizable="false" onload="onload()">
+		<player openstatechange="meta_update()" currentitemchange="meta_update()" currentPlaylistChange="meta_update()"/>
+		<returnbutton top="111" left="36"
+			image="library.png"
+			cursor="hand"
+		/>
+		<button top="111" left="235"
+			image="list.png"
+			onclick="Jscript:list.visible=!list.visible"
+			uptooltip="playlist"
+			cursor="hand"
+		/>
+		<text top="117" left="132" id="pl_numer"
+			foregroundcolor="#666666"
+			fontStyle="bold"
+			fontFace="メイリオ"
+			fontSize="5"
+			value="000"
+		/>
+		<text top="117" left="160" id="pl_denom"
+			foregroundcolor="#666666"
+			fontStyle="bold"
+			fontFace="メイリオ"
+			fontSize="5"
+			value="000"
+		/>
+		<playbutton top="435" left="120"
+			image="play.png"
+			cursor="hand"
+		/>
+		<pausebutton top="435" left="120"
+			image="pause.png"
+			onClick="player.controls.pause();"
+			visible="wmpenabled:player.controls.pause"
+			cursor="hand"
+		/>
+		<prevbutton top="435" left="58"
+ 			image="prev.png"
+			cursor="hand"
+		/>
+		<nextbutton top="435" left="183"
+			image="next.png"
+			cursor="hand"
+		/>
+		<repeatbutton top="482" left="38"
+			image="repeat.png"
+			downimage="repeated.png"
+			cursor="hand"
+		/>
+		<shufflebutton top="482" left="200"
+			image="shuffle.png"
+			downimage="shuffled.png"
+			cursor="hand"
+		/>
+		<minimizebutton top="518" left="120"
+			image="minimize.png"
+			cursor="hand"
+		/>
+		<closebutton top="0" left="192"
+			image="close.png"
+			transparencycolor="#FFFF00"
+			cursor="hand"
+		/>
+		<tracknametext top="393" left="40" id="trackname"
+			width="220"
+			fontsize="7"
+			foregroundcolor="black"
+			backgroundcolor="transparent"
+			scrolling="false"
+			scrollingamount="3"
+			justification="center"
+		/>
+		<text top="415" left="40" id="author_text"
+			width="220"
+			height=""
+			fontsize="5"
+			foregroundColor="darkslategray"
+			fontStyle="regular"
+			tabStop="false"
+			justification="center"
+			value="jscript:player.currentMedia.getItemInfo('Author');"
+		/>
+		<volumeslider top="465" left="70"
+			transparencycolor="#FFFF00"
+			foregroundimage="vol_fore.png"
+			backgroundimage="vol_back.png"
+			thumbimage="vol_ball.png"
+			bordersize="7"
+			direction="horizontal"
+		/>
+		<slider top="378" left="79"
+			width="140"
+			bordersize="1"
+			transparencycolor="#FFFF00"
+			slide="false"
+			foregroundimage="seek_fore.png"
+			backgroundimage="seek_back.png"
+			thumbimage="seek_ball.png"
+			direction="horizontal"
+			min="0"
+			max="wmpprop:player.currentmedia.duration"
+			ondragend="player.controls.currentposition=value;"
+			value="wmpprop:player.controls.currentposition"
+			tooltip="seek"
+		/>
+		<text top="379" left="40"
+			width="30"
+			fontFace="メイリオ"
+			fontsize="5"
+			foregroundcolor="dimgray"
+			value="wmpprop:player.controls.currentPositionString"
+		/>
+		<text top="379" left="230"
+			width="30"
+			fontSize="5"
+			fontFace="メイリオ"
+			foregroundcolor="dimgray"
+			value="wmpprop:player.currentMedia.durationString"
+		/>
+		<subview id="list" visible="false" top="140" left="35" backgroundcolor="none" onload="meta_update()">
+			<playlist top="0" left="0"
+				width="232"
+				height="232"
+				itemPlayingColor="whitesmoke"
+				itemPlayingBackgroundColor="gray"
+				disableditemcolor="#808080"
+				foregroundcolor="darkslategray"
+				backgroundcolor="whitesmoke"
+				dropdownvisible="false"
+				columnsvisible="false"
+			/>
+		</subview>
+		<subview id="album_art_work" visible="true" top="140" left="35" backgroundImage="WMPImage_AlbumArtLarge" width="232" height="232" resizeBackgroundImage="true" passThrough="true" justification="center"></subview>
+	</view>
+</theme>
